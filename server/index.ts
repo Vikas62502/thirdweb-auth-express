@@ -2,11 +2,23 @@ import { ThirdwebAuth } from "@thirdweb-dev/auth/express";
 import { PrivateKeyWallet } from "@thirdweb-dev/auth/evm";
 import { config } from "dotenv";
 import express from "express";
+const ethers = require("ethers");
 
 config();
 
 const app = express();
 const PORT = 8000;
+
+console.log(
+  "process.env.THIRDWEB_AUTH_PRIVATE_KEY",
+  process.env.THIRDWEB_AUTH_PRIVATE_KEY
+);
+console.log(
+  "process.env.THIRDWEB_AUTH_DOMAIN",
+  process.env.THIRDWEB_AUTH_DOMAIN
+);
+
+console.log(ethers.Wallet.createRandom().privateKey);
 
 // NOTE: This users map is for demo purposes. Its used to show the power of
 // what you can accomplish with the Auth callbacks. In a production app,
